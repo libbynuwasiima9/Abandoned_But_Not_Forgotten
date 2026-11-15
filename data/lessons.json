@@ -1,0 +1,92 @@
+[
+  {
+    "id": "geology",
+    "title": "Planetary Geology",
+    "subtitle": "Read the story written in rocks",
+    "description": "Learn how scientists use rock shapes, textures and minerals to reconstruct the history of another world.",
+    "equipment": ["opportunity", "spirit", "curiosity"],
+    "activity": "Compare two rock observations from different missions. What clues might suggest that water changed the rocks? How would you decide which clue is most reliable?",
+    "takeaway": "Rocks preserve evidence of past environments.",
+    "curriculum_alignment": [
+      {"level": "S3", "subject": "Chemistry", "topic": "Rocks, minerals and the rock cycle"},
+      {"level": "S4", "subject": "Geography", "topic": "Weathering, erosion and landscape formation"},
+      {"level": "S4", "subject": "Chemistry", "topic": "Mineral identification and properties"},
+      {"level": "S5/S6", "subject": "Chemistry", "topic": "Analytical methods and spectroscopy"}
+    ]
+  },
+  {
+    "id": "astrobiology",
+    "title": "Astrobiology",
+    "subtitle": "Could another world support life?",
+    "description": "Astrobiology investigates the origin, evolution and potential for life in the universe. It does not assume life exists wherever water is found.",
+    "equipment": ["opportunity", "spirit", "viking", "curiosity"],
+    "activity": "List two environmental conditions scientists investigate when assessing whether a place could be habitable. For each, explain what measurement or instrument you would use to detect it.",
+    "takeaway": "Evidence of water can help identify potentially habitable environments, but it is not proof of life.",
+    "curriculum_alignment": [
+      {"level": "S4", "subject": "Biology", "topic": "Conditions for life and microbiology"},
+      {"level": "S4/S5", "subject": "Chemistry", "topic": "Organic compounds and chemical reactions"},
+      {"level": "S6", "subject": "Biology", "topic": "Evolution, natural selection and origin of life"},
+      {"level": "S6", "subject": "Chemistry", "topic": "Analytical chemistry and experimental design"}
+    ]
+  },
+  {
+    "id": "seismology",
+    "title": "Seismology & Physics",
+    "subtitle": "Listen to a world's vibrations",
+    "description": "Seismometers measure vibrations and seismic waves. Scientists use wave behaviour to infer what lies inside planets and moons. InSight applied this technique on Mars; Apollo applied it on the Moon.",
+    "equipment": ["apollo-seismometer", "insight"],
+    "activity": "Imagine a wave travels through two different materials — say, solid rock and liquid iron. How might its speed or direction change? Draw a diagram and label the boundary between materials.",
+    "takeaway": "Waves can reveal information about structures we cannot directly see.",
+    "curriculum_alignment": [
+      {"level": "S4/S5", "subject": "Physics", "topic": "Waves: properties, speed and behaviour"},
+      {"level": "S5/S6", "subject": "Physics", "topic": "Seismology, refraction and Earth's interior"},
+      {"level": "S4", "subject": "Geography", "topic": "Earthquakes and tectonic hazards in East Africa"},
+      {"level": "S5/S6", "subject": "Physics", "topic": "Signal processing and data interpretation"}
+    ]
+  },
+  {
+    "id": "robotics",
+    "title": "Robotics & Engineering",
+    "subtitle": "Build machines for extreme places",
+    "description": "Space rovers combine mechanical design, sensors, cameras, power systems and software to operate far from human help. Sojourner proved the concept; Curiosity shows how far it has evolved.",
+    "equipment": ["sojourner", "spirit", "opportunity", "curiosity"],
+    "activity": "Design a rover feature that would help it cross a rocky surface or communicate with a base station. Identify one engineering trade-off your design requires.",
+    "takeaway": "Robotics extends human exploration into places that are difficult or dangerous to reach.",
+    "curriculum_alignment": [
+      {"level": "S4/S5", "subject": "Physics", "topic": "Forces, motion and mechanical systems"},
+      {"level": "S5", "subject": "Technical/Vocational Education", "topic": "Robotics, automation and control systems"},
+      {"level": "S4", "subject": "Mathematics", "topic": "Measurement, ratio and data recording"},
+      {"level": "S5/S6", "subject": "Physics", "topic": "Electronics, sensors and feedback systems"}
+    ]
+  },
+  {
+    "id": "chemistry",
+    "title": "Chemistry & Mineral Science",
+    "subtitle": "What are other worlds made of?",
+    "description": "Instruments such as spectrometers help identify elements and minerals in rocks and soil. Curiosity's ChemCam fires a laser at targets; Sojourner's APXS used X-ray bombardment. Both read what comes back.",
+    "equipment": ["opportunity", "spirit", "sojourner", "curiosity"],
+    "activity": "Why might identifying a mineral be more informative than simply describing a rock's colour? Describe two minerals found in Uganda and explain what their presence tells you about the environment where they formed.",
+    "takeaway": "Chemical composition gives clues about how rocks formed and changed.",
+    "curriculum_alignment": [
+      {"level": "S3", "subject": "Chemistry", "topic": "Elements, compounds and mineral identification"},
+      {"level": "S4", "subject": "Chemistry", "topic": "Chemical analysis and periodic table"},
+      {"level": "S4", "subject": "Physics", "topic": "Electromagnetic spectrum and spectroscopy"},
+      {"level": "S5/S6", "subject": "Chemistry", "topic": "Analytical chemistry and spectroscopic methods"}
+    ]
+  },
+  {
+    "id": "physics",
+    "title": "Physics & Measurement",
+    "subtitle": "Precision, light and forces in space",
+    "description": "Precise measurement across vast distances requires understanding the speed of light, optics and atomic-precision timing. The Apollo retroreflectors demonstrate how the simplest physics — reflection — can generate 55 years of scientific results.",
+    "equipment": ["apollo-retroreflectors", "apollo-seismometer"],
+    "activity": "Calculate the Earth-Moon distance using the speed of light (300,000 km/s) and a round-trip laser time of 2.51 seconds. Then calculate how far the Moon has moved since 1969, given it recedes at 3.8 cm per year.",
+    "takeaway": "Measurement precision over long timescales reveals changes that are invisible at any single moment.",
+    "curriculum_alignment": [
+      {"level": "S4", "subject": "Physics", "topic": "Reflection, refraction and optics"},
+      {"level": "S4", "subject": "Mathematics", "topic": "Speed-distance-time calculations"},
+      {"level": "S5/S6", "subject": "Physics", "topic": "Waves, light and electromagnetic radiation"},
+      {"level": "S5/S6", "subject": "Physics", "topic": "Gravitational fields and orbital mechanics"}
+    ]
+  }
+]
