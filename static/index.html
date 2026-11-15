@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore NASA's space equipment and discover the science it made possible.">
+  <title>ABANDONED BUT NOT FORGOTTEN | The Stories Left Behind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="starfield"></div>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">✦</span> ABANDONED  <b>BUT NOT FORGOTTEN (ABNF)</b></a>
+    <nav id="main-nav">
+      <a href="#explore">Explore</a>
+      <a href="#science">Science Lab</a>
+      <a href="#investigation">Virtual Investigation</a>
+      <a href="#timeline">Mission Timeline</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#science" style="color:var(--gold)">Uganda</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> THE STORIES LEFT BEHIND</div>
+        <h1>Every machine<br><span>has a story.</span></h1>
+        <p class="hero-lede">Every machine has a story. Every story has a lesson. Every lesson creates a possibility. Travel with retired space equipment from the dream that created it to the discoveries, challenges and evidence it left behind. Then explore what its legacy can teach the next generation.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#explore">Start exploring <span>↗</span></a>
+          <a class="text-link" href="#science">Discover the science ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>2</strong><span>worlds to explore</span></div>
+          <div><strong>8</strong><span>missions in the archive</span></div>
+          <div><strong>7</strong><span>story chapters</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of Mars and a rover">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet"></div>
+        <div class="planet-label label-top">MARS <small>THE RED PLANET</small></div>
+        <div class="planet-label label-bottom">MOON <small>OUR NEAREST NEIGHBOUR</small></div>
+        <div class="rover-art"><span class="rover-body"></span><span class="rover-mast"></span><span class="rover-wheel w1"></span><span class="rover-wheel w2"></span><span class="rover-wheel w3"></span></div>
+        <div class="floating-note">✦ &nbsp; EVERY MACHINE HAS A STORY</div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block" id="explore">
+      <div class="section-heading">
+        <div><div class="eyebrow">01 / THE EXPLORATION ARCHIVE</div><h2>Meet the <span>equipment</span></h2><p>Choose a mission to discover why it was sent, what it experienced, why it was left behind and what we can learn from it today.</p></div>
+        <div class="filters">
+          <select id="world-filter" aria-label="Filter by world"><option value="all">All worlds</option><option value="Mars">Mars</option><option value="Moon">Moon</option></select>
+          <input id="search-input" type="search" placeholder="Search equipment..." aria-label="Search equipment">
+        </div>
+      </div>
+      <div id="equipment-grid" class="equipment-grid"><div class="loading">Loading the exploration archive…</div></div>
+    </section>
+
+    <section class="science-band" id="science">
+      <div class="section-wrap section-block">
+        <div class="section-heading">
+          <div><div class="eyebrow">2 : LEARN BY DISCOVERING</div><h2>Enter the <span>Science Lab</span></h2><p>Explore the science inside each machine: the instruments, measurements and questions that changed what humanity knows.</p></div>
+        </div>
+        <div id="lesson-grid" class="lesson-grid"><div class="loading">Preparing science pathways…</div></div>
+        <div id="lesson-detail" class="lesson-detail hidden"></div>
+      </div>
+    </section>
+
+    <section class="investigation-band" id="investigation">
+      <div class="section-wrap section-block">
+        <div class="section-heading">
+          <div><div class="eyebrow">3 : BE THE SCIENTIST</div><h2>Virtual <span>Science Investigation</span></h2><p>Study a mission-inspired evidence set, record what you notice and build a scientific explanation.</p></div>
+        </div>
+        <div class="investigation-panel">
+          <div class="investigation-controls">
+            <label for="investigation-select">Choose an investigation</label>
+            <select id="investigation-select" aria-label="Choose an investigation"></select>
+            <p class="simulation-note">Learning simulation: the evidence cards below are simplified teaching examples based on published mission findings. They are not raw NASA telemetry or original instrument files.</p>
+          </div>
+          <div id="investigation-brief" class="investigation-brief"></div>
+          <div class="evidence-heading"><div><div class="eyebrow">STATION 1</div><h3>Examine the evidence</h3></div><span class="evidence-tag">OBSERVE · COMPARE · QUESTION</span></div>
+          <div id="evidence-grid" class="evidence-grid"></div>
+          <div class="investigation-workspace">
+            <div class="workspace-step"><span>02</span><div><h3>Record your observations</h3><p>Write at least two things you can directly observe. Avoid explaining them just yet.</p></div></div>
+            <textarea id="student-observations" rows="4" placeholder="I notice that… Another observation is…"></textarea>
+            <div class="workspace-step"><span>03</span><div><h3>Choose a hypothesis</h3><p>Which explanation best fits the evidence? A hypothesis is a testable explanation, not a proven fact.</p></div></div>
+            <select id="hypothesis-select" aria-label="Choose your hypothesis"></select>
+            <button id="submit-investigation" class="btn btn-primary" type="button">Submit my investigation ↗</button>
+            <div id="investigation-feedback" class="investigation-feedback" aria-live="polite"></div>
+          </div>
+          <div id="scientist-conclusion" class="scientist-conclusion hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block" id="timeline">
+      <div class="section-heading">
+        <div><div class="eyebrow">04 / A MISSION THROUGH TIME</div><h2>Explore a <span>timeline</span></h2><p>Follow a mission from launch to its scientific legacy.</p></div>
+        <select id="timeline-select" aria-label="Choose a mission"></select>
+      </div>
+      <div id="timeline-content" class="timeline-content"><div class="loading">Loading mission timeline…</div></div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+      <div class="section-wrap section-block">
+        <div class="quiz-intro"><div class="eyebrow">05 / THINK LIKE A SCIENTIST</div><h2>Test your <span>space knowledge</span></h2><p>Use what you have discovered to solve these science questions.</p></div>
+        <div class="quiz-panel">
+          <div class="quiz-top"><span id="quiz-progress">QUESTION 1 OF 4</span><span class="quiz-tag">SPACE EXPLORER CHALLENGE</span></div>
+          <div id="quiz-content"><div class="loading">Preparing your challenge…</div></div>
+          <div class="quiz-controls"><button id="quiz-next" class="btn btn-primary" disabled>Check answer</button><span id="quiz-feedback" aria-live="polite"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block" id="leaderboard">
+      <div class="section-heading">
+        <div><div class="eyebrow">06 / HALL OF EXPLORERS</div><h2>Space <span>Leaderboard</span></h2><p>Top scores from quiz explorers. Complete the quiz and submit your score.</p></div>
+        <button id="refresh-leaderboard" class="btn btn-primary">Refresh ↗</button>
+      </div>
+      <div id="leaderboard-content" class="leaderboard-wrap"><div class="loading">Loading leaderboard…</div></div>
+    </section>
+
+    <section class="closing section-wrap">
+      <div class="closing-symbol">✦</div><div class="eyebrow">THE LEGACY CONTINUES</div>
+      <h2>Curiosity is how<br><span>discovery begins.</span></h2>
+      <p>These machines may have stopped moving, but the knowledge they gathered continues to move science forward.</p>
+      <a class="btn btn-primary" href="#explore">Explore the archive ↑</a>
+    </section>
+  </main>
+  <footer><a class="brand" href="#home">✦ SPACE <b>LEGACY</b></a><span>Educational prototype · Built for space science discovery</span><a href="#home">Back to top ↑</a></footer>
+
+  <dialog id="equipment-modal" class="equipment-modal">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <div id="modal-planet-canvas" class="modal-planet-wrap"></div>
+    <div id="modal-content"></div>
+  </dialog>
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/three-scene.js"></script>
+</body>
+</html>
