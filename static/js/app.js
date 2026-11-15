@@ -27,6 +27,8 @@ function symbolFor(item) {
   if (item.id === "curiosity") return "⊕";
   if (item.id === "insight") return "⊗";
   if (item.id === "apollo-retroreflectors") return "◇";
+  if (item.id === "cassini") return "◉";
+  if (item.id === "voyager-1") return "⇥";
   return "✣";
 }
 
@@ -47,6 +49,7 @@ function renderEquipment(items) {
         <div class="card-meta">${escapeHTML(item.mission)} · ${escapeHTML(item.years)}</div>
         <h3>${escapeHTML(item.name)}</h3>
         <p>${escapeHTML(item.purpose)}</p>
+        ${["opportunity","insight","cassini"].includes(item.id) ? `<div class="card-3d-badge">◉ 3D Model</div>` : ""}
         <div class="card-bottom">
           <span class="status ${item.status === "Active" || item.status === "Still operational" ? "status-active" : ""}">${escapeHTML(item.status)}</span>
           <button data-open="${escapeHTML(item.id)}">Explore story ↗</button>
@@ -90,6 +93,10 @@ function filterEquipment() {
 }
 
 async function openEquipment(id) {
+  window.location.href = `/equipment/${encodeURIComponent(id)}`;
+}
+
+async function _openEquipmentModal(id) {
   try {
     const item = await api(`/api/equipment/${encodeURIComponent(id)}`);
     const story = item.story;
@@ -107,6 +114,27 @@ async function openEquipment(id) {
       <div class="modal-kicker">${escapeHTML(item.world)} · ${escapeHTML(item.mission)} · ${escapeHTML(item.years)}</div>
       <h2 class="modal-title">${escapeHTML(item.name)}</h2>
       <p class="modal-intro">${escapeHTML(story.why_sent)}</p>
+      ${item.voice ? `
+      <section class="equipment-voice">
+        <div class="eyebrow">THE EQUIPMENT SPEAKS</div>
+        <blockquote class="voice-quote">${escapeHTML(item.voice)}</blockquote>
+        <button class="btn-listen" id="voice-listen-btn" data-voice="${escapeHTML(item.voice)}">▶ Listen</button>
+      </section>` : ""}
+      ${["opportunity","insight","cassini"].includes(item.id) ? `
+      <section class="model-viewer-section">
+        <div class="eyebrow">NASA 3D MODEL</div>
+        <h3>${escapeHTML(item.name)} — interactive 3D</h3>
+        <p class="model-viewer-note">Official NASA GLB model · Drag to rotate · scroll to zoom · NASA 3D Resources.</p>
+        <model-viewer
+          src="/static/models/${item.id}.glb"
+          alt="${escapeHTML(item.name)} 3D model"
+          auto-rotate
+          camera-controls
+          shadow-intensity="1"
+          exposure="1.2"
+          class="equipment-model-viewer">
+        </model-viewer>
+      </section>` : ""}
       <section class="original-gallery" id="original-image-gallery">
         <div class="eyebrow">ORIGINAL NASA PHOTOGRAPHS</div>
         <h3>See the actual hardware</h3>
@@ -132,7 +160,9 @@ async function openEquipment(id) {
       <section class="student-lab uganda-lab">
         <div class="eyebrow">UGANDA CONNECTION</div>
         <h3>${escapeHTML(ug.topic)}</h3>
-        <p>${escapeHTML(ug.local_link)}</p>
+        <p id="ug-local-link-text">${escapeHTML(ug.local_link)}</p>
+        <button class="btn-translate" id="translate-ug-btn" data-text="${escapeHTML(ug.local_link)}">↔ Translate to Swahili</button>
+        <div id="translate-ug-result" class="translate-result hidden"></div>
         <div class="student-takeaway"><b>Try this locally:</b> ${escapeHTML(ug.local_activity)}</div>
         <div class="curriculum-tag"><b>Uganda curriculum:</b> ${escapeHTML(ug.curriculum)}</div>
       </section>` : ""}
@@ -140,7 +170,61 @@ async function openEquipment(id) {
       <div class="source-panel"><div class="eyebrow">NASA SOURCES & FURTHER READING</div>${story.sources.map(source => `<a href="${escapeHTML(source.url)}" target="_blank" rel="noopener">${escapeHTML(source.label)} ↗</a>`).join("")}</div>
       <p class="content-note">Educational interpretation. Suggested student projects are learning applications inspired by the mission; they are not claims that NASA tested this hardware for those uses on Earth.</p>`;
     $("equipment-modal").showModal();
+    speechSynthesis.cancel();
+    const listenBtn = $("voice-listen-btn");
+    if (listenBtn) {
+      listenBtn.addEventListener("click", () => {
+        if (speechSynthesis.speaking) {
+          speechSynthesis.cancel();
+          listenBtn.textContent = "▶ Listen";
+          return;
+        }
+        const utter = new SpeechSynthesisUtterance(listenBtn.dataset.voice);
+        utter.rate = 0.92;
+        utter.pitch = 0.85;
+        const voices = speechSynthesis.getVoices();
+        const preferred = voices.find(v => v.lang === "en-GB" && v.localService) ||
+                          voices.find(v => v.lang.startsWith("en") && v.localService) ||
+                          voices.find(v => v.lang.startsWith("en"));
+        if (preferred) utter.voice = preferred;
+        utter.onstart = () => { listenBtn.textContent = "⏹ Stop"; };
+        utter.onend = () => { listenBtn.textContent = "▶ Listen"; };
+        utter.onerror = () => { listenBtn.textContent = "▶ Listen"; };
+        speechSynthesis.speak(utter);
+      });
+    }
     loadOriginalImages(item.id);
+    // Wire translate button if Uganda section rendered
+    const transBtn = $("translate-ug-btn");
+    if (transBtn) {
+      transBtn.addEventListener("click", async () => {
+        const resultEl = $("translate-ug-result");
+        transBtn.textContent = "↔ Translating…";
+        transBtn.disabled = true;
+        try {
+          const res = await fetch("/api/translate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text: transBtn.dataset.text }),
+          });
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          resultEl.textContent = data.translation;
+          resultEl.classList.remove("hidden");
+          transBtn.textContent = "↔ Show English";
+          transBtn.disabled = false;
+          transBtn.onclick = () => {
+            resultEl.classList.toggle("hidden");
+            transBtn.textContent = resultEl.classList.contains("hidden") ? "↔ Show Swahili" : "↔ Show English";
+          };
+        } catch (e) {
+          resultEl.textContent = "Translation unavailable. Ensure the server has the ML dependencies installed.";
+          resultEl.classList.remove("hidden");
+          transBtn.textContent = "↔ Translate to Swahili";
+          transBtn.disabled = false;
+        }
+      });
+    }
     // Three.js modal planet — slight delay lets dialog layout settle
     setTimeout(() => { window.SpaceScene?.initModalPlanet(item.world); }, 60);
   } catch (error) {
@@ -371,9 +455,42 @@ if (_refreshBtn) _refreshBtn.addEventListener("click", loadLeaderboard);
 
 $("world-filter").addEventListener("change", filterEquipment);
 $("search-input").addEventListener("input", filterEquipment);
-$("modal-close").addEventListener("click", () => { $("equipment-modal").close(); window.SpaceScene?.disposeModalPlanet(); });
+
+// ── AI semantic search ────────────────────────────────────────────────────────
+let _aiSearchPending = false;
+
+async function runAISearch() {
+  const query = $("search-input").value.trim();
+  if (!query) { renderEquipment(equipmentRecords); return; }
+  if (_aiSearchPending) return;
+  _aiSearchPending = true;
+  const btn = $("ai-search-btn");
+  btn.textContent = "✦ Searching…";
+  btn.disabled = true;
+  try {
+    const res = await fetch("/api/search/semantic", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query }),
+    });
+    if (!res.ok) throw new Error("semantic search failed");
+    const results = await res.json();
+    renderEquipment(results);
+  } catch (e) {
+    // Fall back to keyword filter silently
+    filterEquipment();
+  } finally {
+    btn.textContent = "✦ AI Search";
+    btn.disabled = false;
+    _aiSearchPending = false;
+  }
+}
+
+$("ai-search-btn").addEventListener("click", runAISearch);
+$("search-input").addEventListener("keydown", e => { if (e.key === "Enter") runAISearch(); });
+$("modal-close").addEventListener("click", () => { speechSynthesis.cancel(); $("equipment-modal").close(); window.SpaceScene?.disposeModalPlanet(); });
 $("equipment-modal").addEventListener("click", event => {
-  if (event.target === $("equipment-modal")) { $("equipment-modal").close(); window.SpaceScene?.disposeModalPlanet(); }
+  if (event.target === $("equipment-modal")) { speechSynthesis.cancel(); $("equipment-modal").close(); window.SpaceScene?.disposeModalPlanet(); }
 });
 $("menu-toggle").addEventListener("click", () => $("main-nav").classList.toggle("open"));
 $("main-nav").querySelectorAll("a").forEach(a => a.addEventListener("click", () => $("main-nav").classList.remove("open")));
@@ -424,8 +541,120 @@ async function submitScoreToLeaderboard() {
   }
 }
 
+// ── Surface Map ───────────────────────────────────────────────────────────────
+const MAP_LOCATIONS = {
+  moon: [
+    { id: "apollo-retroreflectors", label: "Apollo 11", sublabel: "Retroreflector · Mare Tranquillitatis", lat: 0.67,  lon: 23.47,  active: true  },
+    { id: "apollo-seismometer",     label: "Apollo 12", sublabel: "Seismometer · Oceanus Procellarum",   lat: -3.01, lon: -23.42, active: false },
+    { id: "apollo-retroreflectors", label: "Apollo 14", sublabel: "Retroreflector + Seismometer · Fra Mauro",       lat: -3.64, lon: -17.47, active: true  },
+    { id: "apollo-retroreflectors", label: "Apollo 15", sublabel: "Retroreflector + Seismometer · Hadley-Apennine", lat: 26.13, lon: 3.63,   active: true  },
+    { id: "apollo-seismometer",     label: "Apollo 16", sublabel: "Seismometer · Descartes Highlands",   lat: -8.97, lon: 15.50,  active: false },
+  ],
+  mars: [
+    { id: "viking",      label: "Viking 1",    sublabel: "Lander · Chryse Planitia",         lat: 22.27,  lon: -47.95, active: false },
+    { id: "viking",      label: "Viking 2",    sublabel: "Lander · Utopia Planitia",          lat: 47.97,  lon: 134.26, active: false },
+    { id: "sojourner",   label: "Sojourner",   sublabel: "Rover · Ares Vallis",               lat: 19.13,  lon: -33.20, active: false },
+    { id: "opportunity", label: "Opportunity", sublabel: "Rover · Perseverance Valley",       lat: -1.95,  lon: -5.53,  active: false },
+    { id: "spirit",      label: "Spirit",      sublabel: "Rover · Columbia Hills · Troy",     lat: -14.57, lon: 175.48, active: false },
+    { id: "insight",     label: "InSight",     sublabel: "Lander · Elysium Planitia",         lat: 4.50,   lon: 135.62, active: false },
+    { id: "curiosity",   label: "Curiosity",   sublabel: "Rover · Gale Crater (still active)",lat: -5.40,  lon: 137.80, active: true  },
+  ]
+};
+
+const MAP_BG = {
+  moon: { fill: "#1a1d22", label: "LUNAR SURFACE · NEAR SIDE", color: "#a9b5c6" },
+  mars: { fill: "#2d1408", label: "MARTIAN SURFACE · EQUIRECTANGULAR",  color: "#ff815b" },
+};
+
+let _currentMapWorld = "moon";
+
+function latLonToXY(lat, lon, W, H) {
+  const x = ((lon + 180) / 360) * W;
+  const y = ((90 - lat) / 180) * H;
+  return { x, y };
+}
+
+function renderMap(world) {
+  _currentMapWorld = world;
+  const container = $("map-container");
+  const W = container.clientWidth || 860;
+  const H = Math.round(W * 0.46);
+  const bg = MAP_BG[world];
+  const locations = MAP_LOCATIONS[world];
+
+  // Build grid lines
+  const gridLines = [];
+  for (let lon = -180; lon <= 180; lon += 30) {
+    const x = ((lon + 180) / 360) * W;
+    gridLines.push(`<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="#ffffff09" stroke-width="1"/>`);
+  }
+  for (let lat = -90; lat <= 90; lat += 30) {
+    const y = ((90 - lat) / 180) * H;
+    gridLines.push(`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#ffffff09" stroke-width="1"/>`);
+  }
+
+  // Equator + prime meridian highlight
+  const eqY = H / 2;
+  const pmX = W / 2;
+  gridLines.push(`<line x1="0" y1="${eqY}" x2="${W}" y2="${eqY}" stroke="#ffffff18" stroke-width="1" stroke-dasharray="4 4"/>`);
+  gridLines.push(`<line x1="${pmX}" y1="0" x2="${pmX}" y2="${H}" stroke="#ffffff18" stroke-width="1" stroke-dasharray="4 4"/>`);
+
+  // Markers
+  const markers = locations.map((loc, i) => {
+    const { x, y } = latLonToXY(loc.lat, loc.lon, W, H);
+    const col = loc.active ? "var(--gold)" : (world === "moon" ? "#a9b5c6" : "var(--orange)");
+    const pulse = loc.active ? `<circle cx="${x}" cy="${y}" r="14" fill="${col}" opacity="0.15"><animate attributeName="r" values="10;18;10" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.15;0.03;0.15" dur="2s" repeatCount="indefinite"/></circle>` : "";
+    return `${pulse}<circle class="map-marker" cx="${x}" cy="${y}" r="7" fill="${col}" stroke="#080d18" stroke-width="2" data-index="${i}" data-world="${world}" style="cursor:pointer;filter:drop-shadow(0 0 6px ${col})"/>
+      <text x="${x}" y="${y - 11}" text-anchor="middle" font-size="9" fill="${col}" font-family="'Space Grotesk',sans-serif" letter-spacing="0.5" pointer-events="none">${escapeHTML(loc.label)}</text>`;
+  }).join("");
+
+  container.innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block;border-radius:8px;background:${bg.fill}">
+      ${gridLines.join("")}
+      <text x="12" y="18" font-size="9" fill="${bg.color}" font-family="'Space Grotesk',sans-serif" letter-spacing="1.5" opacity="0.5">${bg.label}</text>
+      ${markers}
+    </svg>`;
+
+  container.querySelectorAll(".map-marker").forEach(el => {
+    el.addEventListener("click", e => showMapTooltip(e, world));
+  });
+}
+
+function showMapTooltip(e, world) {
+  const idx = Number(e.target.dataset.index);
+  const loc = MAP_LOCATIONS[world][idx];
+  const equipment = equipmentRecords.find(r => r.id === loc.id);
+  const tooltip = $("map-tooltip");
+  tooltip.innerHTML = `
+    <div class="tt-kicker">${escapeHTML(loc.sublabel)}</div>
+    <div class="tt-name">${escapeHTML(loc.label)}</div>
+    ${equipment ? `<div class="tt-status">${escapeHTML(equipment.status)} · ${escapeHTML(equipment.years)}</div>` : ""}
+    <div class="tt-actions">
+      ${equipment ? `<button class="btn-tt-story" data-id="${escapeHTML(loc.id)}">Explore story ↗</button>` : ""}
+      <button class="btn-tt-close">✕</button>
+    </div>`;
+  tooltip.classList.remove("hidden");
+  tooltip.querySelectorAll(".btn-tt-story").forEach(btn => {
+    btn.addEventListener("click", () => { tooltip.classList.add("hidden"); openEquipment(btn.dataset.id); });
+  });
+  tooltip.querySelector(".btn-tt-close").addEventListener("click", () => tooltip.classList.add("hidden"));
+}
+
+function initMap() {
+  renderMap("moon");
+  document.querySelectorAll(".map-tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".map-tab").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      $("map-tooltip").classList.add("hidden");
+      renderMap(btn.dataset.world);
+    });
+  });
+}
+
 async function init() {
   await loadEquipment();
+  initMap();
   loadInvestigation();
   await loadLessons();
   await loadTimeline();
