@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <div class="starfield"></div>
@@ -19,6 +20,7 @@
       <a href="#explore">Explore</a>
       <a href="#science">Science Lab</a>
       <a href="#investigation">Virtual Investigation</a>
+      <a href="#map">Surface Map</a>
       <a href="#timeline">Mission Timeline</a>
       <a href="#quiz">Quiz</a>
       <a href="#leaderboard">Leaderboard</a>
@@ -30,12 +32,12 @@
   <main>
     <section class="hero section-wrap" id="home">
       <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span> THE STORIES LEFT BEHIND</div>
-        <h1>Every machine<br><span>has a story.</span></h1>
-        <p class="hero-lede">Every machine has a story. Every story has a lesson. Every lesson creates a possibility. Travel with retired space equipment from the dream that created it to the discoveries, challenges and evidence it left behind. Then explore what its legacy can teach the next generation.</p>
+        <div class="eyebrow"><span class="pulse"></span> ABANDONED · NOT FORGOTTEN</div>
+        <h1>Left behind<br><span>on other worlds.</span></h1>
+        <p class="hero-lede">These machines traveled further than any human ever has — and then went quiet. What they found out there changed what we know about our solar system, about water, about dust, about time. This is where their stories live.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#explore">Start exploring <span>↗</span></a>
-          <a class="text-link" href="#science">Discover the science ↓</a>
+          <a class="btn btn-primary" href="#explore">Browse the archive <span>↗</span></a>
+          <a class="text-link" href="#science">See what they found ↓</a>
         </div>
         <div class="hero-stats">
           <div><strong>2</strong><span>worlds to explore</span></div>
@@ -49,16 +51,17 @@
         <div class="planet-label label-top">MARS <small>THE RED PLANET</small></div>
         <div class="planet-label label-bottom">MOON <small>OUR NEAREST NEIGHBOUR</small></div>
         <div class="rover-art"><span class="rover-body"></span><span class="rover-mast"></span><span class="rover-wheel w1"></span><span class="rover-wheel w2"></span><span class="rover-wheel w3"></span></div>
-        <div class="floating-note">✦ &nbsp; EVERY MACHINE HAS A STORY</div>
+        <div class="floating-note">✦ &nbsp; STILL OUT THERE · SINCE 2004</div>
       </div>
     </section>
 
     <section class="section-wrap section-block" id="explore">
       <div class="section-heading">
-        <div><div class="eyebrow">01 / THE EXPLORATION ARCHIVE</div><h2>Meet the <span>equipment</span></h2><p>Choose a mission to discover why it was sent, what it experienced, why it was left behind and what we can learn from it today.</p></div>
+        <div><div class="eyebrow">01 / THE ARCHIVE</div><h2>Pick a <span>machine</span></h2><p>Eight missions. Some lasted years longer than anyone expected. Some never made it. All of them left something behind worth looking at.</p></div>
         <div class="filters">
-          <select id="world-filter" aria-label="Filter by world"><option value="all">All worlds</option><option value="Mars">Mars</option><option value="Moon">Moon</option></select>
+          <select id="world-filter" aria-label="Filter by world"><option value="all">All worlds</option><option value="Mars">Mars</option><option value="Moon">Moon</option><option value="Saturn">Saturn</option><option value="Interstellar Space">Interstellar Space</option></select>
           <input id="search-input" type="search" placeholder="Search equipment..." aria-label="Search equipment">
+          <button id="ai-search-btn" class="btn-ai-search" title="Smart search across mission details">✦ Deep search</button>
         </div>
       </div>
       <div id="equipment-grid" class="equipment-grid"><div class="loading">Loading the exploration archive…</div></div>
@@ -67,7 +70,7 @@
     <section class="science-band" id="science">
       <div class="section-wrap section-block">
         <div class="section-heading">
-          <div><div class="eyebrow">2 : LEARN BY DISCOVERING</div><h2>Enter the <span>Science Lab</span></h2><p>Explore the science inside each machine: the instruments, measurements and questions that changed what humanity knows.</p></div>
+          <div><div class="eyebrow">2 : SCIENCE LAB</div><h2>What they <span>actually found</span></h2><p>Not just "science happened." The specific instruments, the measurements that surprised people, the questions that still don't have clean answers.</p></div>
         </div>
         <div id="lesson-grid" class="lesson-grid"><div class="loading">Preparing science pathways…</div></div>
         <div id="lesson-detail" class="lesson-detail hidden"></div>
@@ -77,7 +80,7 @@
     <section class="investigation-band" id="investigation">
       <div class="section-wrap section-block">
         <div class="section-heading">
-          <div><div class="eyebrow">3 : BE THE SCIENTIST</div><h2>Virtual <span>Science Investigation</span></h2><p>Study a mission-inspired evidence set, record what you notice and build a scientific explanation.</p></div>
+          <div><div class="eyebrow">3 : YOUR TURN</div><h2>Work through <span>the evidence</span></h2><p>Here's what the instruments actually recorded. What do you notice? What would you conclude? Build your explanation before you see what the scientists found.</p></div>
         </div>
         <div class="investigation-panel">
           <div class="investigation-controls">
@@ -101,9 +104,25 @@
       </div>
     </section>
 
+    <section class="map-band" id="map">
+      <div class="section-wrap section-block">
+        <div class="section-heading">
+          <div><div class="eyebrow">04 / STILL OUT THERE</div><h2>Exact <span>locations</span></h2><p>They didn't come back. Each one is still exactly where it landed or crashed or ran out of power. Here's where.</p></div>
+          <div class="map-tabs">
+            <button class="map-tab active" data-world="moon">☾ Moon</button>
+            <button class="map-tab" data-world="mars">✣ Mars</button>
+          </div>
+        </div>
+        <div id="map-container" class="map-container">
+          <div class="loading">Rendering surface map…</div>
+        </div>
+        <div id="map-tooltip" class="map-tooltip hidden"></div>
+      </div>
+    </section>
+
     <section class="section-wrap section-block" id="timeline">
       <div class="section-heading">
-        <div><div class="eyebrow">04 / A MISSION THROUGH TIME</div><h2>Explore a <span>timeline</span></h2><p>Follow a mission from launch to its scientific legacy.</p></div>
+        <div><div class="eyebrow">05 / FROM LAUNCH TO SILENCE</div><h2>The <span>timeline</span></h2><p>Launch. Travel. Land. Work. Go quiet. Each mission had its own version of that story.</p></div>
         <select id="timeline-select" aria-label="Choose a mission"></select>
       </div>
       <div id="timeline-content" class="timeline-content"><div class="loading">Loading mission timeline…</div></div>
@@ -111,7 +130,7 @@
 
     <section class="quiz-section" id="quiz">
       <div class="section-wrap section-block">
-        <div class="quiz-intro"><div class="eyebrow">05 / THINK LIKE A SCIENTIST</div><h2>Test your <span>space knowledge</span></h2><p>Use what you have discovered to solve these science questions.</p></div>
+        <div class="quiz-intro"><div class="eyebrow">06 / THINK LIKE A SCIENTIST</div><h2>How much did<br><span>you pick up?</span></h2><p>Four questions. No hints. See what stuck.</p></div>
         <div class="quiz-panel">
           <div class="quiz-top"><span id="quiz-progress">QUESTION 1 OF 4</span><span class="quiz-tag">SPACE EXPLORER CHALLENGE</span></div>
           <div id="quiz-content"><div class="loading">Preparing your challenge…</div></div>
@@ -122,20 +141,20 @@
 
     <section class="section-wrap section-block" id="leaderboard">
       <div class="section-heading">
-        <div><div class="eyebrow">06 / HALL OF EXPLORERS</div><h2>Space <span>Leaderboard</span></h2><p>Top scores from quiz explorers. Complete the quiz and submit your score.</p></div>
+        <div><div class="eyebrow">07 / TOP SCORERS</div><h2>The <span>leaderboard</span></h2><p>Finish the quiz and put your name up here.</p></div>
         <button id="refresh-leaderboard" class="btn btn-primary">Refresh ↗</button>
       </div>
       <div id="leaderboard-content" class="leaderboard-wrap"><div class="loading">Loading leaderboard…</div></div>
     </section>
 
     <section class="closing section-wrap">
-      <div class="closing-symbol">✦</div><div class="eyebrow">THE LEGACY CONTINUES</div>
-      <h2>Curiosity is how<br><span>discovery begins.</span></h2>
-      <p>These machines may have stopped moving, but the knowledge they gathered continues to move science forward.</p>
-      <a class="btn btn-primary" href="#explore">Explore the archive ↑</a>
+      <div class="closing-symbol">✦</div><div class="eyebrow">STILL OUT THERE</div>
+      <h2>They stopped moving.<br><span>We kept going.</span></h2>
+      <p>The dust settled. The signals stopped. But the rocks they touched, the images they sent back, the questions they cracked open — that work never ends.</p>
+      <a class="btn btn-primary" href="#explore">Go back to the archive ↑</a>
     </section>
   </main>
-  <footer><a class="brand" href="#home">✦ SPACE <b>LEGACY</b></a><span>Educational prototype · Built for space science discovery</span><a href="#home">Back to top ↑</a></footer>
+  <footer><a class="brand" href="#home">✦ SPACE <b>LEGACY</b></a><span>A NASA Space Apps project · Kampala, Uganda</span><a href="#home">Back to top ↑</a></footer>
 
   <dialog id="equipment-modal" class="equipment-modal">
     <button class="modal-close" id="modal-close" aria-label="Close">×</button>

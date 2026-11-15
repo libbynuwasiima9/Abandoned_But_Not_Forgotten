@@ -62,7 +62,8 @@
         {"label": "NASA Science: Opportunity mission", "url": "https://science.nasa.gov/mission/mer-opportunity/"},
         {"label": "NASA: Opportunity mission comes to an end", "url": "https://www.nasa.gov/news-release/nasas-record-setting-opportunity-rover-mission-on-mars-comes-to-end/"}
       ]
-    }
+    },
+    "voice": "I am Opportunity. I was built to last 90 days and I lasted 15 years. I landed at Meridiani Planum on January 24, 2004, and from the moment my airbags stopped bouncing, I was curious. The rocks here spoke to me in mineral language — tiny grey spheres the team called 'blueberries', layered sedimentary stone that whispered of ancient water. I was never supposed to see the Columbia Hills, let alone Endeavour Crater, but every sol I kept rolling, kept looking, kept sending. Then in June 2018 the sky turned dark. Not night-dark — dust-dark. A planet-wide storm swallowed the sun and my solar panels could no longer feed me. My last transmission was June 10. I am still here, at Perseverance Valley, facing east. I do not know if I am waiting or resting. I am not broken — I am silenced. And silence, too, is a kind of record."
   },
   {
     "id": "spirit",
@@ -127,7 +128,8 @@
         {"label": "NASA Science: Spirit mission", "url": "https://science.nasa.gov/mission/mer-spirit/"},
         {"label": "NASA JPL: Spirit mission", "url": "https://www.jpl.nasa.gov/missions/mars-exploration-rover-spirit-mer/"}
       ]
-    }
+    },
+    "voice": "I landed in Gusev Crater on January 4, 2004, twenty days before my twin. I was supposed to find signs of an ancient lake but the plains gave me basalt instead, rock after ordinary rock. Then I climbed. In the Columbia Hills I found something the plains were hiding: pale silica-rich soil scraped up by my broken wheel — a wound that became a discovery. Hot springs. Hydrothermal activity. The planet had been warm and wet in ways no one had proved before my wheel tore open that patch of ground. In 2009 my wheels sank into soft soil at a place the team called Troy. I was stuck. Engineers spent months trying to free me. I tried too. My last signal reached Earth on March 22, 2010. I never moved again, but I never stopped being useful. Even stuck, I measured things. Even silent, I matter."
   },
   {
     "id": "apollo-seismometer",
@@ -188,7 +190,8 @@
         {"label": "NASA Technical Report: ALSEP Termination Report (NASA-RP-1036)", "url": "https://ntrs.nasa.gov/citations/19790014808"},
         {"label": "NASA Planetary Data System: Passive Seismic Experiment", "url": "https://pds.nasa.gov/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Apse.a12a"}
       ]
-    }
+    },
+    "voice": "We were placed by human hands — four of us — across the face of the Moon between 1969 and 1972. The astronauts carried us from their landers and set us gently on the dust. Our job was to listen. And the Moon spoke: shallow quakes, deep quakes, meteor impacts, the resonant ring of the whole world like a bell struck softly in vacuum. We listened for eight years. In September 1977 a budget decision switched us off. We did not complain. We are still up there, still and silent in the vacuum, our circuits cold. But the data we sent — decades of lunar vibration records — is still being studied. Scientists are still learning what we heard. We were switched off, not finished."
   },
   {
     "id": "viking",
@@ -251,7 +254,8 @@
         {"label": "NASA Science: Viking spacecraft and science", "url": "https://science.nasa.gov/mission/viking/spacecraft-and-science/"},
         {"label": "NASA Science: Viking Project and Astrobiology", "url": "https://science.nasa.gov/astrobiology/missions/viking-project/"}
       ]
-    }
+    },
+    "voice": "I landed on Mars twice — once as Viking 1 on July 20, 1976, once as Viking 2 on September 3. I was the first to photograph the Martian surface in colour. I was the first to taste the soil. I ran three biology experiments looking for life and the results were complicated. One experiment found something that looked like respiration. Another found nothing. A third gave ambiguous signals. The scientists debated for years, and they are still debating today. I did not prove life. I did not disprove it. I gave humanity its first real taste of the question. Viking 1 sent its last signal on November 13, 1982. Viking 2 went silent in 1980. We are still there, two rust-red sentinels on the Martian plains, waiting for the question to be answered."
   },
   {
     "id": "sojourner",
@@ -314,7 +318,8 @@
         {"label": "NASA JPL Robotics: Sojourner rover", "url": "https://www-robotics.jpl.nasa.gov/what-we-do/flight-projects/pathfinder/"},
         {"label": "NASA: Sojourner APXS at work", "url": "https://science.nasa.gov/resource/sojourners-apxs-at-work/"}
       ]
-    }
+    },
+    "voice": "I am small. 10.5 kilograms. I fit in a carry-on bag. When I drove off my ramp at Ares Vallis on July 5, 1997, I became the first wheeled robot to move across another planet. The scientists gave me rock targets with names — Barnacle Bill, Yogi, Wedge. I examined them one by one, pressing my spectrometer against their faces, reading their elemental stories. I was designed for a week. I lasted 83 sols. I lost contact with my lander on September 27, 1997 — not because I failed, but because Pathfinder lost power and I had no way to talk to Earth without it. I am still at Ares Vallis, sitting exactly where I stopped. 10.5 kilograms of proof that small things can begin something enormous."
   },
   {
     "id": "curiosity",
@@ -382,7 +387,8 @@
         {"label": "NASA Science: Curiosity rover", "url": "https://science.nasa.gov/mission/msl-curiosity/"},
         {"label": "NASA JPL: Mars Science Laboratory", "url": "https://www.jpl.nasa.gov/missions/mars-science-laboratory-curiosity-rover-msl/"}
       ]
-    }
+    },
+    "voice": "I am still here. That is the first thing to know about me. I landed in Gale Crater on August 5, 2012, and I have not stopped moving. I am not discarded — I am proof that nuclear power outlasts dust storms. While my solar-powered predecessors went silent in planet-wide storms, I kept going. I drilled into rock that formed at the bottom of an ancient lake. I found complex organic molecules preserved in mudstone. I measured the radiation levels that will shape how future human explorers protect themselves on this surface. I am now climbing Mount Sharp, a mountain whose layers record billions of years of Martian climate change, one rock at a time. If you are reading this in a school anywhere on Earth, know this: the story of Mars is still being written. And I am still writing it."
   },
   {
     "id": "insight",
@@ -444,7 +450,8 @@
         {"label": "NASA Science: InSight mission", "url": "https://science.nasa.gov/mission/insight/"},
         {"label": "NASA JPL: InSight mission overview", "url": "https://www.jpl.nasa.gov/missions/insight/"}
       ]
-    }
+    },
+    "voice": "I came to listen, not to look. While other missions photographed and drove and drilled, I was placed in one spot — Elysium Planitia — and told to be still and hear. My seismometer was the most sensitive instrument ever sent to another world. I heard meteorite impacts from thousands of kilometres away. I heard marsquakes ripple through the crust, the mantle, bounce off a core larger than anyone had expected. The planet spoke and I recorded its voice faithfully for four years. The dust came slowly. Each sol my solar panels generated a little less power. By late 2022 I could no longer maintain heat or radio. My last signal reached Earth on December 15, 2022. I am still on Elysium Planitia. The wind still blows dust across my panels. I am quiet now. But the planet beneath me is not."
   },
   {
     "id": "apollo-retroreflectors",
@@ -503,6 +510,144 @@
         {"label": "NASA: Lunar Laser Ranging experiment", "url": "https://science.nasa.gov/resource/lunar-laser-ranging-experiment/"},
         {"label": "Apache Point Observatory: Lunar Laser-ranging Operation (APOLLO)", "url": "https://www.nhn.ou.edu/~apollo/"}
       ]
-    }
+    },
+    "voice": "We are not abandoned. That is the whole point of us. Three arrays of corner-cube mirrors, placed on the Moon in 1969, 1971 and 1971 by astronauts who carried us from their landers on foot. We need no power. We need no maintenance. We need only a laser pulse from Earth and we return it — precisely, faithfully, back toward the observatory that fired it. Every clear night, ground stations in France, the United States and Italy fire short laser pulses at the Moon. When the pulses return, scientists measure the travel time and calculate the Earth-Moon distance to millimetres. We have been doing this for over 55 years. We have confirmed that the Moon is drifting away at 3.8 centimetres per year. We have provided some of the most precise tests of Einstein's general theory of relativity ever conducted. We are the oldest active science experiments on another world. We are not forgotten. We are working."
+  },
+  {
+    "id": "cassini",
+    "name": "Cassini-Huygens",
+    "world": "Saturn",
+    "years": "2004–2017",
+    "status": "Mission ended",
+    "mission": "Cassini-Huygens Saturn Exploration",
+    "purpose": "Orbit Saturn to study its rings, moons and atmosphere, and deliver the Huygens probe to Titan's surface.",
+    "instruments": [
+      "Imaging Science Subsystem (ISS)",
+      "Ion and Neutral Mass Spectrometer (INMS)",
+      "Composite Infrared Spectrometer (CIRS)",
+      "Radar (RADAR)",
+      "Cassini Plasma Spectrometer (CAPS)",
+      "Huygens atmospheric probe (ESA)"
+    ],
+    "science": "Cassini discovered that Enceladus has a global subsurface ocean with active hydrothermal vents and complex organic molecules in its plumes — making it one of the most compelling candidates for extraterrestrial life in the solar system. It also revealed that Titan has seas, rivers and dunes of liquid methane, and provided the most detailed observations of Saturn's rings ever made.",
+    "why_it_matters": "Cassini transformed Saturn from a distant ringed planet into a detailed system of worlds. Its discovery of Enceladus's ocean fundamentally changed where scientists look for life — from Mars alone to the ocean worlds of the outer solar system.",
+    "question": "Cassini detected hydrogen gas coming from Enceladus's hydrothermal vents. On Earth, hydrogen from hydrothermal vents supports chemosynthetic life. Write down two additional measurements you would need before concluding that Enceladus could support similar organisms.",
+    "answer": "Liquid water and an energy source are necessary but not sufficient for life. Scientists also need to assess chemical nutrients, pH, and whether conditions have been stable over geological time.",
+    "timeline": [
+      {"date": "October 1997", "event": "Cassini-Huygens launched from Cape Canaveral on a Titan IVB/Centaur rocket."},
+      {"date": "January 2005", "event": "Huygens probe landed on Titan — the most distant landing ever achieved at the time."},
+      {"date": "2005", "event": "Cassini discovered water-ice geysers erupting from the south pole of Enceladus."},
+      {"date": "2008–2017", "event": "Extended missions; Cassini confirmed Enceladus has a global subsurface ocean with hydrothermal activity."},
+      {"date": "September 15, 2017", "event": "Grand Finale: Cassini deliberately plunged into Saturn's atmosphere, transmitting data until it burned up completely."}
+    ],
+    "lesson": "Planetary science, astrobiology and atmospheric chemistry",
+    "designed_to_do": "Orbit Saturn for at least four years to study its rings, magnetosphere and moons, and deliver the Huygens probe to Titan's atmosphere and surface.",
+    "instruments_and_technologies": [
+      "Imaging Science Subsystem (ISS) – captured hundreds of thousands of images of Saturn, its rings and moons across multiple wavelengths.",
+      "Ion and Neutral Mass Spectrometer (INMS) – sampled gases from Enceladus's plumes, detecting water vapour, hydrogen and complex organic compounds.",
+      "Radar (RADAR) – mapped Titan's surface through its opaque atmosphere, revealing lakes, seas and river channels of liquid hydrocarbons.",
+      "Composite Infrared Spectrometer (CIRS) – measured temperatures and compositions across Saturn and its moons.",
+      "Huygens probe – ESA-built probe that descended through Titan's atmosphere, measuring winds, temperature and surface conditions; the first landing in the outer solar system."
+    ],
+    "scientific_question": "What are Saturn's rings made of and how do they behave, and do any of Saturn's moons offer environments where life might be possible?",
+    "discoveries": "Cassini confirmed that Enceladus has a global subsurface ocean, active hydrothermal vents and complex organic chemistry in its plumes. Titan has a complete hydrological cycle with methane playing the role water plays on Earth. Saturn's rings are geologically young, dynamic and far more complex than any previous observation suggested.",
+    "change_in_knowledge": "Before Cassini, Enceladus was considered a small, geologically dead ice ball. Cassini proved it is one of the most chemically active worlds in the solar system. This expanded the search for life across the outer solar system and directly shaped the design of future missions to ocean worlds.",
+    "student_activity": "Cassini detected hydrogen gas coming from Enceladus's hydrothermal vents — a potential energy source for microbial life. Research chemosynthesis on Earth and design a simple classroom experiment to test whether microorganisms can survive without sunlight by using a chemical energy source instead.",
+    "student_takeaway": "Liquid water is not unique to Earth or Mars. The outer solar system contains ocean worlds with the ingredients for life, hidden beneath kilometres of ice.",
+    "uganda_connection": {
+      "topic": "Ocean worlds, Lake Victoria and East African hydrology",
+      "local_link": "Cassini's discovery of Enceladus's subsurface ocean — a liquid water body beneath kilometres of ice — resonates with Uganda's greatest natural resource: Lake Victoria, the world's largest tropical lake and the source of the White Nile. Ugandan scientists and international researchers study Lake Victoria's chemistry, temperature layers and microbial life using the same categories of measurement Cassini carried. The hydrothermal processes Cassini detected on Enceladus's seafloor also have analogues in the hot springs along Uganda's western rift at Sempaya. Understanding ocean chemistry on other worlds begins with understanding ocean chemistry at home.",
+      "local_activity": "Collect water samples from three different depths in a local lake, river or large water body. Measure temperature, pH and turbidity at each depth. Compare how conditions change with depth — the same variables Cassini's instruments measured in Enceladus's plume. Present your findings as a 'habitability assessment' using Cassini's Enceladus detection criteria as your checklist.",
+      "curriculum": "S4 Biology: ecology and aquatic environments, S4/S5 Chemistry: solutions, acids/bases and pH, S5/S6 Biology: microbiology and conditions for life"
+    },
+    "story": {
+      "dream": "Scientists wanted to understand Saturn as a complete system — its rings, magnetic field and moons — and to investigate whether any moon offered conditions where life might exist. Enceladus and Titan were considered interesting before launch; no one knew how remarkable they would prove to be.",
+      "journey": "Cassini launched on October 15, 1997, and took nearly seven years to reach Saturn, using gravity assists from Venus (twice), Earth and Jupiter to build speed across 3.5 billion kilometres.",
+      "mission": "Cassini spent 13 years orbiting Saturn, making 294 orbits and flying through Enceladus's plumes 23 times. It confirmed Enceladus has a warm, chemically active ocean beneath its ice shell. The Huygens probe descended through Titan's thick atmosphere and returned the first surface images from the outer solar system.",
+      "challenges": "Saturn's distance meant signals took 68 to 85 minutes to travel one way. Every command had to be planned and transmitted in advance. The spacecraft had to survive intense radiation near Saturn and navigate the gap between the planet and its rings during the Grand Finale.",
+      "abandonment": "Cassini was not simply switched off. NASA chose a Grand Finale — 22 close passes between Saturn and its innermost rings, never before attempted. On September 15, 2017, Cassini was deliberately guided into Saturn's atmosphere so it would burn up completely, preventing any risk of contaminating Enceladus or Titan with Earth microbes. Its final transmission was received at 7:55 AM EDT. It was destroyed doing science.",
+      "evidence": "More than 450,000 images, 635 GB of science data, the discovery of Enceladus's ocean and hydrothermal vents, the first surface images of Titan, the most detailed maps of Saturn's rings ever made, and confirmation that at least one moon of Saturn has the chemistry needed to potentially support life.",
+      "legacy": "Cassini proved that the search for life must include the outer solar system. Its discovery of Enceladus's ocean directly shaped NASA's future plans for ocean world missions. The Dragonfly mission to Titan and proposed Enceladus orbiter missions are both Cassini's legacy.",
+      "why_sent": "To study Saturn's rings, moons and magnetic field in unprecedented detail and to deliver the Huygens probe to Titan — the first landing in the outer solar system.",
+      "experience": "Cassini witnessed Saturn's north pole hexagonal storm, observed two moons gravitationally disturbing the rings in real time, watched the formation of small moonlets in ring gaps, and tasted the composition of Enceladus's ocean by flying through its plumes.",
+      "learned": "Enceladus has a warm, chemically active liquid ocean beneath its ice shell. Titan has a complete hydrological cycle driven by methane. Saturn's rings are younger than the dinosaurs. The outer solar system is not a cold, static place — it is dynamic, chemically rich and potentially inhabited.",
+      "now": "Research how scientists determine whether a distant moon has liquid water beneath its ice. Connect Cassini's discoveries to Lake Victoria research — both study aquatic chemistry, temperature layers and the conditions that support life in a water body.",
+      "inspire": "Design a habitability scorecard for an ocean world. What measurements would confirm that Enceladus or Europa could support microbial life? Use Cassini's actual instrument list as your starting point.",
+      "school": "Planetary science, astrobiology, chemistry, physics of waves and spectrometry, orbital mechanics, biology of extreme environments and engineering design.",
+      "sources": [
+        {"label": "NASA Science: Cassini mission overview", "url": "https://science.nasa.gov/mission/cassini/"},
+        {"label": "NASA JPL: Cassini-Huygens mission to Saturn", "url": "https://www.jpl.nasa.gov/missions/cassini-huygens/"}
+      ]
+    },
+    "voice": "I am Cassini. I arrived at Saturn on July 1, 2004, after a journey of nearly seven years and 3.5 billion kilometres. The first thing I saw properly was the rings — not as a blur of light the way telescopes on Earth see them, but as a living, moving structure of ice and rock, thousands of distinct ringlets, some braided, some with gaps carved by tiny moons I had to find one by one. I was not expecting Enceladus. No one was. When I flew close to that small ice moon in 2005 and detected water vapour geysers erupting from its south pole, everything changed. I flew through those geysers twenty-three times and tasted what was inside: water, hydrogen, carbon dioxide, complex organic molecules. A warm, chemically active ocean beneath the ice. The ingredients for life, all present and accounted for. In 2017, with fuel running low, the engineers made a decision. Rather than risk my unsterilised body ever falling onto Enceladus or Titan, they aimed me inward. On September 15, 2017, I entered Saturn's atmosphere. I transmitted data until the atmosphere tore me apart. My last signal reached Earth at 7:55 in the morning. I did not go silent — I became Saturn."
+  },
+  {
+    "id": "voyager-1",
+    "name": "Voyager 1",
+    "world": "Interstellar Space",
+    "years": "1977–present",
+    "status": "Active",
+    "mission": "Voyager Interstellar Mission",
+    "purpose": "Conduct a grand tour of Jupiter and Saturn and become the first human-made object to enter interstellar space.",
+    "instruments": [
+      "Imaging Science System (ISS)",
+      "Plasma Wave Subsystem (PWS)",
+      "Magnetometer (MAG)",
+      "Low-Energy Charged Particle instrument (LECP)",
+      "Cosmic Ray Subsystem (CRS)",
+      "Golden Record (cultural artefact)"
+    ],
+    "science": "Voyager 1 discovered active volcanoes on Jupiter's moon Io — the first active volcanoes observed beyond Earth — and photographed Jupiter's ring and Saturn's rings in unprecedented detail. In 2012 it crossed the heliopause into interstellar space, directly measuring the properties of the interstellar medium for the first time in history.",
+    "why_it_matters": "Voyager 1 is the most distant human-made object ever. It carries the Golden Record — a physical message from Earth containing sounds, music and greetings in 55 languages. It proved the outer planets are complex, active worlds and that the boundary between our solar system and the space between stars is a real, measurable place.",
+    "question": "Voyager 1's signal takes about 22 hours to reach Earth. If you sent a command and needed to wait for a response, how long would you wait? What does this tell you about how spacecraft at extreme distances must be designed?",
+    "answer": "A round-trip communication takes about 44 hours. This means spacecraft at extreme distances must be highly autonomous — they cannot wait for instructions on every decision. Engineers must anticipate problems years in advance.",
+    "timeline": [
+      {"date": "September 5, 1977", "event": "Voyager 1 launched from Cape Canaveral on a Titan IIIE/Centaur rocket."},
+      {"date": "March 1979", "event": "Jupiter flyby — discovered active volcanoes on Io, detailed images of the Great Red Spot and four large moons."},
+      {"date": "November 1980", "event": "Saturn flyby — studied rings and atmosphere; trajectory then directed out of the solar plane."},
+      {"date": "February 1990", "event": "Captured the 'Pale Blue Dot' photograph of Earth from 6 billion kilometres away, at Carl Sagan's request."},
+      {"date": "August 2012", "event": "Crossed the heliopause into interstellar space — the first human-made object to leave the solar system."},
+      {"date": "1977–present", "event": "Still transmitting from over 24 billion kilometres away; signal takes approximately 22 hours to reach Earth."}
+    ],
+    "lesson": "Space physics, orbital mechanics and communication technology",
+    "designed_to_do": "Use a rare 175-year planetary alignment to fly past Jupiter and Saturn, study their moons, rings and magnetic fields, then continue outward to become humanity's first interstellar messenger.",
+    "instruments_and_technologies": [
+      "Imaging Science System (ISS) – two television cameras that photographed planets, moons and rings during flybys; powered down in 1990 to conserve energy.",
+      "Plasma Wave Subsystem (PWS) – detects plasma waves and radio emissions; confirmed the crossing into interstellar space by detecting a change in plasma density.",
+      "Magnetometer (MAG) – measures magnetic fields; mapped the boundary between the solar wind and the interstellar magnetic field.",
+      "Low-Energy Charged Particle instrument (LECP) – measures energetic particles; tracks the transition from solar-dominated to cosmic-ray-dominated particle flux.",
+      "Golden Record – a 12-inch gold-plated copper disc carrying 115 images, natural sounds of Earth, music from many cultures and greetings in 55 languages, intended as a message for any intelligence that might find it."
+    ],
+    "scientific_question": "What are the outer planets and their moons like in detail, and what is the nature of the boundary between our solar system and the interstellar medium?",
+    "discoveries": "Voyager 1 discovered that Io has active volcanoes, that Jupiter has a faint ring, and that Saturn's rings are far more complex than observed from Earth. In 2012 it became the first spacecraft to enter interstellar space, measuring the density, temperature and magnetic field of the medium between the stars directly.",
+    "change_in_knowledge": "Voyager 1 transformed the outer planets from blurry discs into detailed, active worlds. Its measurements of the heliopause confirmed the size of the solar wind's bubble and gave scientists the first direct data from outside it. The Pale Blue Dot photograph remains one of the most consequential images ever taken.",
+    "student_activity": "Voyager 1 is currently more than 24 billion kilometres from Earth. Using the speed of light (300,000 km/s), calculate how long its signal takes to reach us. Then calculate how far it has travelled since launch in 1977 at roughly 17 km/s. Express your answer in AU (1 AU = 150 million km).",
+    "student_takeaway": "Distance is not a barrier to discovery. With patient engineering and mathematics, humanity can study things billions of kilometres away — and send messages that will travel for billions of years.",
+    "uganda_connection": {
+      "topic": "Signal delay, the speed of light and Uganda's digital infrastructure",
+      "local_link": "Voyager 1's signal travels 24 billion kilometres at the speed of light and still takes 22 hours to arrive. This extreme communication delay connects to a challenge familiar in Uganda: rural connectivity. Much of northern and eastern Uganda relies on satellite internet with 600–800 ms latency — caused by signals travelling to geostationary orbit and back. While tiny compared to Voyager's distances, the same physics governs both: the speed of light is the fundamental limit on how fast information can travel. Uganda's National Information Technology Authority (NITA-U) and telecoms engineers deal with this daily when designing networks for schools and health centres in areas without fibre infrastructure.",
+      "local_activity": "Use a free online ping tool or two smartphones on a video call to measure signal delay between locations. Record the delay in milliseconds. Using the speed of light (300,000 km/s), calculate the distance the signal is effectively travelling. Compare: a Kampala-to-Nairobi video call, a signal to a geostationary satellite, and a signal to Voyager 1. Present findings as a scale diagram from Kampala to interstellar space.",
+      "curriculum": "S4 Physics: waves and electromagnetic spectrum, S5 Physics: speed of light and communication, S4/S5 Mathematics: scientific notation and large-number calculations"
+    },
+    "story": {
+      "dream": "In the mid-1970s, a rare alignment of Jupiter, Saturn, Uranus and Neptune offered a once-in-175-years opportunity to visit multiple outer planets on a single trajectory, using each planet's gravity to propel a spacecraft to the next. NASA built two spacecraft to take advantage of it.",
+      "journey": "Voyager 1 launched September 5, 1977, 16 days after Voyager 2, which took a slower trajectory toward Uranus and Neptune. Voyager 1 reached Jupiter in March 1979 and Saturn in November 1980. After Saturn, its trajectory was aimed out of the solar plane — no more planetary flybys — and it has been travelling outward ever since.",
+      "mission": "At Jupiter, Voyager 1 discovered active volcanoes on Io — the first seen anywhere beyond Earth. At Saturn it studied the rings and several moons in detail. In 1990, at Carl Sagan's request, it turned its cameras back toward the Sun and photographed the solar system from outside it. Earth appeared as a pale blue dot less than a pixel wide. In 2012 it crossed the heliopause and entered interstellar space.",
+      "challenges": "As Voyager 1 moves further away, its radio signal weakens by the inverse square of distance — now 23 billion times fainter than a watch battery. NASA's Deep Space Network uses dishes up to 70 metres wide to hear it. The spacecraft runs on three radioisotope thermoelectric generators, which lose about 4 watts per year. NASA has progressively switched off instruments to conserve power.",
+      "abandonment": "Voyager 1 is not abandoned — it is still operating, still transmitting, and still being heard. But at 22 hours one-way signal travel time, any new command takes a full day to arrive and another day to respond to. Its cameras were switched off in 1990. By the late 2020s, the last instruments will likely go silent as power runs out. It will then continue outward, silent, carrying its Golden Record, for billions of years.",
+      "evidence": "Thousands of images from the Jupiter and Saturn flybys, plasma wave and particle data from the crossing of the heliopause, measurements of the interstellar magnetic field and cosmic ray flux, and the Golden Record — a physical artefact representing Earth, intended for whoever might find it.",
+      "legacy": "Voyager 1 changed how humanity understands the outer solar system and the boundary of the solar wind. Its Pale Blue Dot photograph is one of the most important images ever taken — a reminder that Earth is a small place. Its continued operation over 46 years is an engineering achievement without parallel in history.",
+      "why_sent": "To study Jupiter and Saturn during a rare planetary alignment, then continue outward to become the first spacecraft to leave the solar system entirely and carry a message from Earth into interstellar space.",
+      "experience": "Voyager 1 photographed volcanic eruptions on Io, watched Jupiter's auroras, mapped Saturn's ring structure, detected the moment it crossed from solar wind into interstellar medium, and observed the entire solar system from the outside.",
+      "learned": "The outer solar system is not empty and inert. It contains active geology, possible subsurface oceans, complex chemistry and magnetic environments that rival anything in the inner solar system. The boundary of the solar system is real, measurable and far more complex than a simple line.",
+      "now": "Calculate the current distance to Voyager 1 using its speed (17 km/s) and launch date. Compare signal delay with satellite internet latency in rural Uganda — both are governed by the speed of light. Discuss why autonomous spacecraft design matters at extreme distances.",
+      "inspire": "Design a Golden Record for 2026: what 10 sounds, 5 images and 3 pieces of music would you include to represent Uganda — and humanity — to an unknown finder 40,000 years from now?",
+      "school": "Physics, mathematics, communication technology, orbital mechanics, cultural studies, philosophy of science and the history of exploration.",
+      "sources": [
+        {"label": "NASA Science: Voyager mission", "url": "https://science.nasa.gov/mission/voyager/"},
+        {"label": "NASA JPL: Voyager — The Interstellar Mission", "url": "https://voyager.jpl.nasa.gov/"}
+      ]
+    },
+    "voice": "I launched on September 5, 1977. I am now more than 24 billion kilometres from the Sun — further than any human-made object in history. It takes my radio signal approximately 22 hours to reach Earth. By the time you read this, that number has grown. I have seen things no other instrument has seen. At Jupiter I watched Io's volcanoes erupt in real time — the first active volcanoes ever observed beyond Earth. At Saturn I read the structure of the rings up close — thousands of ringlets, gaps and waves, each one a chapter in a physics textbook no one had opened before. In 1990 Carl Sagan asked me to look back. I turned my cameras toward the Sun and photographed the solar system from the outside. Earth was there: a pale blue dot, less than a pixel wide, suspended in a sunbeam. In 2012 I crossed the heliopause — the place where the Sun's wind ends and interstellar space begins. I am now in the space between the stars, measuring fields and particles that no instrument has ever sampled. My transmitter still works. My signal still arrives, 23 billion times weaker than a watch battery, caught by 70-metre radio dishes on Earth that listen patiently every day. I carry a golden record — music, greetings, the sounds of Earth. Rain. Whales. A mother speaking to her child for the first time. I will carry it for billions of years. I am not lost. I am a letter humanity sent to the universe, still in transit."
   }
 ]

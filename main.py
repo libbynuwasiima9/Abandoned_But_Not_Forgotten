@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 import sqlite3
+import threading
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
@@ -43,6 +44,14 @@ QUIZ_BANK = [
 @app.get("/", include_in_schema=False)
 def home():
     return FileResponse(STATIC_DIR / "index.html")
+
+
+@app.get("/equipment/{equipment_id}", include_in_schema=False)
+def equipment_page(equipment_id: str):
+    for item in _equipment:
+        if item["id"] == equipment_id:
+            return FileResponse(STATIC_DIR / "equipment.html")
+    raise HTTPException(status_code=404, detail="Equipment not found")
 
 
 @app.get("/api/health")
@@ -92,6 +101,8 @@ IMAGE_SEARCH_TERMS = {
     "curiosity": "Mars Science Laboratory Curiosity rover Gale Crater NASA",
     "insight": "InSight Mars lander seismometer marsquake NASA",
     "apollo-retroreflectors": "Apollo lunar laser ranging retroreflector experiment Moon",
+    "cassini": "Cassini Saturn rings Enceladus NASA JPL",
+    "voyager-1": "Voyager 1 Jupiter Saturn interstellar NASA deep space",
 }
 
 REQUIRED_TERMS = {
@@ -103,6 +114,8 @@ REQUIRED_TERMS = {
     "curiosity": ("curiosity", "rover"),
     "insight": ("insight",),
     "apollo-retroreflectors": ("retroreflector",),
+    "cassini": ("cassini",),
+    "voyager-1": ("voyager",),
 }
 
 
@@ -241,3 +254,85 @@ def submit_score(body: ScoreSubmission):
 
 
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+
+# ── ML models (lazy-loaded on first request) ──────────────────────────────────
+
+_sem_model = None
+_sem_embeddings = None
+_sem_lock = threading.Lock()
+
+_trans_tokenizer = None
+_trans_model = None
+_trans_lock = threading.Lock()
+
+
+def _get_sem_model():
+    global _sem_model, _sem_embeddings
+    with _sem_lock:
+        if _sem_model is None:
+            from sentence_transformers import SentenceTransformer
+            _sem_model = SentenceTransformer("all-MiniLM-L6-v2")
+            texts = [
+                " ".join(filter(None, [
+                    e.get("name", ""),
+                    e.get("purpose", ""),
+                    e.get("story", {}).get("mission", ""),
+                    e.get("story", {}).get("legacy", ""),
+                    e.get("story", {}).get("learned", ""),
+                    e.get("uganda_connection", {}).get("local_link", ""),
+                ]))
+                for e in _equipment
+            ]
+            _sem_embeddings = _sem_model.encode(texts, convert_to_tensor=True)
+    return _sem_model, _sem_embeddings
+
+
+def _get_trans_model():
+    global _trans_tokenizer, _trans_model
+    with _trans_lock:
+        if _trans_model is None:
+            from transformers import MarianMTModel, MarianTokenizer
+            name = "Helsinki-NLP/opus-mt-en-sw"
+            _trans_tokenizer = MarianTokenizer.from_pretrained(name)
+            _trans_model = MarianMTModel.from_pretrained(name)
+    return _trans_tokenizer, _trans_model
+
+
+class SemanticQuery(BaseModel):
+    query: str
+
+
+class TranslateRequest(BaseModel):
+    text: str
+
+
+@app.post("/api/search/semantic")
+def semantic_search(body: SemanticQuery):
+    query = body.query.strip()[:300]
+    if not query:
+        return []
+    try:
+        from sentence_transformers import util
+        model, embeddings = _get_sem_model()
+        query_emb = model.encode(query, convert_to_tensor=True)
+        scores = util.cos_sim(query_emb, embeddings)[0].tolist()
+        ranked = sorted(zip(_equipment, scores), key=lambda x: x[1], reverse=True)
+        return [item for item, score in ranked if score > 0.15]
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Semantic search unavailable: {exc}")
+
+
+@app.post("/api/translate")
+def translate_to_swahili(body: TranslateRequest):
+    text = body.text.strip()[:600]
+    if not text:
+        return {"translation": ""}
+    try:
+        tokenizer, model = _get_trans_model()
+        inputs = tokenizer([text], return_tensors="pt", padding=True, truncation=True, max_length=512)
+        translated = model.generate(**inputs, max_new_tokens=512)
+        result = tokenizer.batch_decode(translated, skip_special_tokens=True)
+        return {"translation": result[0]}
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Translation unavailable: {exc}")
