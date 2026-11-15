@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Brief — Abandoned But Not Forgotten</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+    .brief-wrap{width:min(820px,88%);margin:0 auto;padding:60px 0 100px}
+    .brief-hero{padding:50px 0 40px;border-bottom:1px solid var(--line)}
+    .brief-hero .eyebrow{margin-bottom:14px}
+    .brief-hero h1{font:700 clamp(32px,5vw,52px)/1.05 var(--display);letter-spacing:-2px;margin:0 0 18px}
+    .brief-hero h1 span{color:var(--orange)}
+    .brief-hero p{color:var(--muted);font-size:15px;line-height:1.8;max-width:640px;margin:0}
+    .brief-meta{display:flex;gap:30px;margin-top:24px;flex-wrap:wrap}
+    .brief-meta-item{display:flex;flex-direction:column;gap:3px}
+    .brief-meta-item strong{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--cyan);text-transform:uppercase}
+    .brief-meta-item span{font-size:13px;color:var(--text)}
+    .brief-section{padding:36px 0;border-bottom:1px solid var(--line)}
+    .brief-section:last-child{border-bottom:none}
+    .brief-section h2{font:700 22px/1.2 var(--display);margin:0 0 14px;letter-spacing:-0.5px}
+    .brief-section h2 span{color:var(--orange)}
+    .brief-section p{font-size:14px;color:var(--muted);line-height:1.8;margin:0 0 12px}
+    .brief-section p:last-child{margin:0}
+    .criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+    .criteria-card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:16px}
+    .criteria-card strong{display:block;font:700 12px var(--display);color:var(--gold);margin-bottom:6px}
+    .criteria-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+    .feature-list{display:grid;gap:8px;margin-top:14px}
+    .feature-row{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:10px 0;border-top:1px solid var(--line)}
+    .feature-row:first-child{border-top:none}
+    .feature-row strong{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--cyan);padding-top:1px}
+    .feature-row p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+    .stack-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .stack-tag{background:var(--panel);border:1px solid var(--line);border-radius:2px;padding:5px 10px;font-family:var(--mono);font-size:10px;color:var(--muted)}
+    .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;text-decoration:none;margin-bottom:30px}
+    .back-link:hover{color:var(--text)}
+    @media(max-width:600px){.criteria-grid{grid-template-columns:1fr}.feature-row{grid-template-columns:1fr}.brief-meta{gap:18px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">✦ ABANDONED <b>BUT NOT FORGOTTEN</b></a>
+    <nav id="main-nav">
+      <a href="/">Home</a>
+      <a href="/#explore">Archive</a>
+      <a href="/#science">Science Lab</a>
+      <a href="/brief" style="color:var(--orange)">Project Brief</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <main class="brief-wrap">
+    <a class="back-link" href="/">← Back to the app</a>
+
+    <div class="brief-hero">
+      <div class="eyebrow">NASA SPACE APPS CHALLENGE 2026 — PROJECT BRIEF</div>
+      <h1>Abandoned But<br><span>Not Forgotten</span></h1>
+      <p>An interactive educational archive that tells the stories of NASA equipment left behind on the Moon, Mars and beyond — built by a team in Uganda for secondary school learners across East Africa.</p>
+      <div class="brief-meta">
+        <div class="brief-meta-item"><strong>Challenge</strong><span>Abandoned but not Forgotten</span></div>
+        <div class="brief-meta-item"><strong>Team location</strong><span>Kampala, Uganda</span></div>
+        <div class="brief-meta-item"><strong>Target audience</strong><span>S3–S5 secondary school learners</span></div>
+        <div class="brief-meta-item"><strong>Format</strong><span>Interactive web app</span></div>
+      </div>
+    </div>
+
+    <div class="brief-section">
+      <h2>The <span>problem</span> we're solving</h2>
+      <p>Space science education in Uganda — and across much of East Africa — relies heavily on abstract textbook content with no connection to real missions, real data or real questions scientists are still working on. Students learn about Newton's laws but never see how they apply to orbital mechanics. They study ecosystems but never encounter the question of whether ancient Mars had one.</p>
+      <p>Meanwhile, NASA has left hardware on other worlds that most people don't know exists — a seismometer still waiting for moonquakes it will never detect, a rover that survived 59× longer than planned before going silent in a dust storm, a spacecraft that left the solar system and is still phoning home. These are extraordinary stories. They're not being told to the people who need them most.</p>
+    </div>
+
+    <div class="brief-section">
+      <h2>How it <span>addresses the challenge</span></h2>
+      <div class="criteria-grid">
+        <div class="criteria-card">
+          <strong>Narrative depth</strong>
+          <p>Every piece of equipment has a 7-chapter story: the dream behind it, the journey, the mission, the challenges, why it was left, the evidence it returned, and what its legacy means now. Plus a first-person voice — the machine speaking.</p>
+        </div>
+        <div class="criteria-card">
+          <strong>Personal connection</strong>
+          <p>Each mission is linked to a real, local Ugandan context. Opportunity's dust story connects to solar panel maintenance at rural health centres. Cassini's rings connect to Uganda's physics curriculum on wave behaviour.</p>
+        </div>
+        <div class="criteria-card">
+          <strong>Scientific accuracy</strong>
+          <p>All mission data, instrument descriptions and discoveries are sourced from NASA primary sources, linked directly within each equipment record. Evidence cards in the investigation section are marked as teaching simulations.</p>
+        </div>
+        <div class="criteria-card">
+          <strong>Age-appropriate + accessible</strong>
+          <p>Targeted at S3–S5 (ages 15–18). Content is structured around Uganda's secondary curriculum. No login required. Runs on a basic laptop with a local server — no cloud dependency for core features.</p>
+        </div>
+        <div class="criteria-card">
+          <strong>Engaging format</strong>
+          <p>3D model viewer for Opportunity, InSight and Cassini. Interactive surface maps showing exact landing coordinates. Virtual science investigation where learners examine evidence before seeing the conclusion.</p>
+        </div>
+        <div class="criteria-card">
+          <strong>Swahili localisation</strong>
+          <p>Key science terms translated to Swahili in the Uganda section of each mission. Machine translation (Helsinki-NLP) with a glossary display — acknowledges the tool and encourages discussion of translation limits.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brief-section">
+      <h2>What's <span>in the app</span></h2>
+      <div class="feature-list">
+        <div class="feature-row">
+          <strong>EQUIPMENT ARCHIVE</strong>
+          <p>10 mission records with filter by world, text search and semantic deep search. Each card opens a full detail page.</p>
+        </div>
+        <div class="feature-row">
+          <strong>MISSION STORIES</strong>
+          <p>7-chapter narrative per mission. First-person voice from the machine. NASA original image gallery. Source links to NASA primary documentation.</p>
+        </div>
+        <div class="feature-row">
+          <strong>SCIENCE LAB</strong>
+          <p>6 learning pathways across instruments, discoveries and scientific methods — built around the specific measurements each mission returned.</p>
+        </div>
+        <div class="feature-row">
+          <strong>VIRTUAL INVESTIGATION</strong>
+          <p>Learner examines evidence cards, records observations, picks a hypothesis, submits reasoning — then sees how it compares to the actual scientific conclusion.</p>
+        </div>
+        <div class="feature-row">
+          <strong>SURFACE MAPS</strong>
+          <p>Interactive Moon and Mars maps with clickable markers at exact mission coordinates. Clicking a marker shows the mission brief and links to the full story.</p>
+        </div>
+        <div class="feature-row">
+          <strong>MISSION TIMELINES</strong>
+          <p>Launch → travel → landing → mission highlights → silence. Per-mission, selectable from a dropdown.</p>
+        </div>
+        <div class="feature-row">
+          <strong>QUIZ + LEADERBOARD</strong>
+          <p>4-question quiz with server-side answer validation. Score submission to a SQLite leaderboard. Answers never sent to the client.</p>
+        </div>
+        <div class="feature-row">
+          <strong>UGANDA CONNECTION</strong>
+          <p>Every mission has a local activity tied to Uganda's curriculum with Swahili glossary. Opportunity → solar dust. Viking → soil chemistry. Cassini → wave physics.</p>
+        </div>
+        <div class="feature-row">
+          <strong>3D MODELS</strong>
+          <p>NASA-sourced GLB models for Opportunity, InSight and Cassini, displayed in-browser via model-viewer with orbit controls.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brief-section">
+      <h2>Technical <span>stack</span></h2>
+      <p>Deliberately minimal. No paid APIs for core features. Runs locally on a basic laptop — important for schools in Uganda with unreliable internet.</p>
+      <div class="stack-row">
+        <span class="stack-tag">Python 3.10+</span>
+        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">SQLite</span>
+        <span class="stack-tag">Vanilla JS</span>
+        <span class="stack-tag">sentence-transformers</span>
+        <span class="stack-tag">Helsinki-NLP translation</span>
+        <span class="stack-tag">Three.js</span>
+        <span class="stack-tag">model-viewer</span>
+        <span class="stack-tag">NASA Image API</span>
+      </div>
+      <p style="margin-top:14px">NASA image gallery and Swahili translation require internet. Everything else — archive, science lab, investigation, quiz, 3D models — runs fully offline once installed.</p>
+    </div>
+
+    <div class="brief-section">
+      <h2>What we'd <span>build next</span></h2>
+      <p>Teacher mode with class progress tracking. Audio narration for the first-person machine voices. Expanded archive with Apollo surface experiments, Surveyor landers and Spirit's full story. Offline-first PWA packaging so the whole app installs as a school resource without a Python server.</p>
+    </div>
+  </main>
+
+  <footer>
+    <a class="brand" href="/">✦ SPACE <b>LEGACY</b></a>
+    <span>A NASA Space Apps project · Kampala, Uganda</span>
+    <a href="/">Back to app ↑</a>
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('main-nav').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

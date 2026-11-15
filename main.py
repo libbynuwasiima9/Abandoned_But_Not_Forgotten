@@ -46,6 +46,11 @@ def home():
     return FileResponse(STATIC_DIR / "index.html")
 
 
+@app.get("/brief", include_in_schema=False)
+def brief_page():
+    return FileResponse(STATIC_DIR / "brief.html")
+
+
 @app.get("/equipment/{equipment_id}", include_in_schema=False)
 def equipment_page(equipment_id: str):
     for item in _equipment:
